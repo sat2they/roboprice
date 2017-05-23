@@ -6,8 +6,8 @@ define('API_URL', 'https://api.telegram.org/bot'.BOT_TOKEN.'/');
 $content = file_get_contents("php://input");
 $update = json_decode($content, true);
 $chatID = $update["message"]["chat"]["id"];
-$messageTXT = $update["message"]["chat"]["text"];	
-var_dump ($update);
+$messageTXT = $update["message"]["text"];	
+
 // compose reply
 $reply =  sendMessage($messageTXT);
 		
@@ -20,5 +20,5 @@ $message = "I am a baby bot.";
 if ($messageTXT=="GO")
 return "TestOK";
 else
-return $messageTXT;
+return $message;
 }
